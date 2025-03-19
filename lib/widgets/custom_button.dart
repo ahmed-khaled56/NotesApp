@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/constants.dart';
 
 class CustomButton extends StatefulWidget {
   final String label;
@@ -17,7 +18,7 @@ class _CustomButtonState extends State<CustomButton> {
       onTap: widget.onPressed,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.tealAccent,
+          color: kPrimaryColor,
           borderRadius: BorderRadius.circular(8),
         ),
         height: 40,
