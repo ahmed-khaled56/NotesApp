@@ -3,7 +3,7 @@ import 'package:notes_app/constants.dart';
 
 class textField extends StatelessWidget {
   final String hintText;
-  final double size;
+  final int maxLines;
   //final String data;
   Function(String)? onChange;
   final TextInputType? textType;
@@ -13,19 +13,20 @@ class textField extends StatelessWidget {
     required this.hintText,
     required this.onChange,
     @required this.textType,
-    required this.size,
+    this.maxLines = 1,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      // height: 150,
+      // height: 50,
       width: double.infinity,
       child: TextField(
+        maxLines: maxLines,
         keyboardType: textType,
         onChanged: onChange,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: size),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           fillColor: Color(0xff28435A),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
