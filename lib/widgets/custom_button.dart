@@ -22,7 +22,7 @@ class _CustomButtonState extends State<CustomButton> {
           borderRadius: BorderRadius.circular(8),
         ),
         height: 40,
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width,
         child: Center(
           child: Text(widget.label, style: TextStyle(color: Colors.black)),
         ),

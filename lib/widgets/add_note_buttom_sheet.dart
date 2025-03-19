@@ -15,14 +15,16 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            textField(hintText: 'Title', onChange: (value) {}, maxLines: 1),
-            SizedBox(height: 20),
-            textField(hintText: 'Content', onChange: (value) {}, maxLines: 5),
-            SizedBox(height: 120),
-            CustomButton(label: "Add", onPressed: () {}),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              textField(hintText: 'Title', onChange: (value) {}, maxLines: 1),
+              SizedBox(height: 20),
+              textField(hintText: 'Content', onChange: (value) {}, maxLines: 5),
+              SizedBox(height: 120),
+              CustomButton(label: "Add", onPressed: () {}),
+            ],
+          ),
         ),
       ),
     );
