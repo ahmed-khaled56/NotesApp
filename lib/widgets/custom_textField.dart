@@ -26,7 +26,7 @@ class textField extends StatelessWidget {
         keyboardType: textType,
         onChanged: onChange,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           fillColor: Color(0xff28435A),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
