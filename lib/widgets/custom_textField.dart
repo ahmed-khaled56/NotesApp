@@ -5,14 +5,16 @@ class textField extends StatelessWidget {
   final String hintText;
   final int maxLines;
   //final String data;
-  Function(String)? onChange;
+
+  void Function(String?)? onSaved;
   final TextInputType? textType;
 
   textField({
-    super.key,
     required this.hintText,
-    required this.onChange,
+
     @required this.textType,
+    required this.onSaved,
+
     this.maxLines = 1,
   });
 
@@ -21,10 +23,18 @@ class textField extends StatelessWidget {
     return SizedBox(
       // height: 50,
       width: double.infinity,
-      child: TextField(
+      child: TextFormField(
+        onSaved: onSaved,
+        validator: (value) {
+          if (value?.isEmpty ?? true) {
+            return "feild is required";
+          } else {
+            return null;
+          }
+        },
         maxLines: maxLines,
         keyboardType: textType,
-        onChanged: onChange,
+
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           fillColor: Color(0xff28435A),

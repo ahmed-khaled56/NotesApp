@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/Add_Note_form.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_textField.dart';
 
@@ -15,17 +16,7 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              textField(hintText: 'Title', onChange: (value) {}, maxLines: 1),
-              SizedBox(height: 20),
-              textField(hintText: 'Content', onChange: (value) {}, maxLines: 5),
-              SizedBox(height: 120),
-              CustomButton(label: "Add", onPressed: () {}),
-            ],
-          ),
-        ),
+        child: SingleChildScrollView(child: AddNoteForm()),
       ),
     );
   }
