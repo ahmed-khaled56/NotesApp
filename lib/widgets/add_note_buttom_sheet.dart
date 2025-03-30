@@ -21,7 +21,12 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
       child: Container(
         color: Color(0xff444246),
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: EdgeInsets.only(
+            left: 15.0,
+            right: 15.0,
+            top: 15,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 15,
+          ),
           child: BlocConsumer<NotesAddCubits, AddNotesStates>(
             listener: (context, state) {
               if (state is SuccessfulAddNOtesState) {
