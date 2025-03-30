@@ -3,9 +3,15 @@ import 'package:notes_app/constants.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
+  final bool isLoading;
   void Function() onPressed;
 
-  CustomButton({super.key, required this.label, required this.onPressed});
+  CustomButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,14 @@ class CustomButton extends StatelessWidget {
         height: 40,
         width: MediaQuery.of(context).size.width,
         child: Center(
-          child: Text(label, style: TextStyle(color: Colors.black)),
+          child:
+              isLoading == true
+                  ? SizedBox(
+                    height: 25,
+                    width: 25,
+                    child: const CircularProgressIndicator(color: Colors.white),
+                  )
+                  : Text(label, style: TextStyle(color: Colors.black)),
         ),
       ),
     );

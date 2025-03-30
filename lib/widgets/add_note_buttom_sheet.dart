@@ -19,9 +19,10 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
     return BlocProvider(
       create: (context) => NotesAddCubits(),
       child: Container(
+        color: Color(0xff444246),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
-          child: BlocConsumer<NotesAddCubits, AddNotesStates>(
+          child: BlocListener<NotesAddCubits, AddNotesStates>(
             listener: (context, state) {
               if (state is SuccessfulAddNOtesState) {
                 Navigator.pop(context);
@@ -31,12 +32,7 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
               }
             },
 
-            builder: (context, state) {
-              return ModalProgressHUD(
-                inAsyncCall: state is LoadingAddNOtesState ? true : false,
-                child: SingleChildScrollView(child: AddNoteForm()),
-              );
-            },
+            child: SingleChildScrollView(child: AddNoteForm()),
           ),
         ),
       ),
