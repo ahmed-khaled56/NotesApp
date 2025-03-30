@@ -22,7 +22,7 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
         color: Color(0xff444246),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
-          child: BlocListener<NotesAddCubits, AddNotesStates>(
+          child: BlocConsumer<NotesAddCubits, AddNotesStates>(
             listener: (context, state) {
               if (state is SuccessfulAddNOtesState) {
                 Navigator.pop(context);
@@ -32,7 +32,12 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
               }
             },
 
-            child: SingleChildScrollView(child: AddNoteForm()),
+            builder: (context, state) {
+              return AbsorbPointer(
+                absorbing: state is LoadingAddNOtesState ? true : false,
+                child: SingleChildScrollView(child: AddNoteForm()),
+              );
+            },
           ),
         ),
       ),
