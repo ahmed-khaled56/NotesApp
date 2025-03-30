@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
-class CustomButton extends StatefulWidget {
+class CustomButton extends StatelessWidget {
   final String label;
-  VoidCallback? onPressed;
+  void Function() onPressed;
 
   CustomButton({super.key, required this.label, required this.onPressed});
 
   @override
-  State<CustomButton> createState() => _CustomButtonState();
-}
-
-class _CustomButtonState extends State<CustomButton> {
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onPressed,
+      onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
           color: kPrimaryColor,
@@ -24,7 +19,7 @@ class _CustomButtonState extends State<CustomButton> {
         height: 40,
         width: MediaQuery.of(context).size.width,
         child: Center(
-          child: Text(widget.label, style: TextStyle(color: Colors.black)),
+          child: Text(label, style: TextStyle(color: Colors.black)),
         ),
       ),
     );

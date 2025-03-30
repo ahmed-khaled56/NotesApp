@@ -3,9 +3,14 @@ import 'package:notes_app/widgets/add_note_buttom_sheet.dart';
 
 import 'package:notes_app/widgets/notes_view_body.dart';
 
-class NotesView extends StatelessWidget {
+class NotesView extends StatefulWidget {
   const NotesView({super.key});
 
+  @override
+  State<NotesView> createState() => _NotesViewState();
+}
+
+class _NotesViewState extends State<NotesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

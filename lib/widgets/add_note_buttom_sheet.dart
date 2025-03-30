@@ -16,15 +16,17 @@ class AddNoteButtomSheet extends StatefulWidget {
 class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => NotesAddCubits(),
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
           child: BlocConsumer<NotesAddCubits, AddNotesStates>(
             listener: (context, state) {
               if (state is SuccessfulAddNOtesState) {
                 Navigator.pop(context);
-              } else if (state is FailureAddNOtesState) {
+              }
+              if (state is FailureAddNOtesState) {
                 print('failed ${state.errorMessage}');
               }
             },
@@ -32,7 +34,7 @@ class _AddNoteButtomSheetState extends State<AddNoteButtomSheet> {
             builder: (context, state) {
               return ModalProgressHUD(
                 inAsyncCall: state is LoadingAddNOtesState ? true : false,
-                child: AddNoteForm(),
+                child: SingleChildScrollView(child: AddNoteForm()),
               );
             },
           ),
