@@ -19,7 +19,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
 
-  String formatedDte = DateFormat('dd/MM/yyyy').format(DateTime.now());
+  String formatedDte = DateFormat('dd-MM-yyyy').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -55,7 +55,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       title: title!,
                       subTitle: subTitle!,
                       date: formatedDte,
-                      color: Colors.blue.alpha,
+                      color: Colors.blue.value,
                     );
                     BlocProvider.of<NotesAddCubits>(
                       context,
