@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
-class textField extends StatelessWidget {
+class textFormField extends StatelessWidget {
   final String hintText;
   final int maxLines;
   //final String data;
@@ -9,7 +9,7 @@ class textField extends StatelessWidget {
   void Function(String?)? onSaved;
   final TextInputType? textType;
 
-  textField({
+  textFormField({
     required this.hintText,
 
     @required this.textType,

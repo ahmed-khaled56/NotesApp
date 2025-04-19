@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/add_notes_cubit/add_notes_cubits.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
-import 'package:notes_app/widgets/custom_textField.dart';
+import 'package:notes_app/widgets/custom_Form_textField.dart';
 import 'package:intl/intl.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -27,7 +27,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          textField(
+          textFormField(
             hintText: 'Title',
             onSaved: (value) {
               title = value;
@@ -35,7 +35,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 1,
           ),
           SizedBox(height: 20),
-          textField(
+          textFormField(
             hintText: 'Content',
             onSaved: (value) {
               subTitle = value;

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/CustomAppBar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes_cubit.dart/notes_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 
-import 'package:notes_app/widgets/custom_textField.dart';
+import 'package:notes_app/widgets/not_edit_view_body.dart';
 
 class EditNoteView extends StatefulWidget {
   static String id = "Edit view";
@@ -14,35 +16,10 @@ class EditNoteView extends StatefulWidget {
 class _EditNoteViewState extends State<EditNoteView> {
   @override
   Widget build(BuildContext context) {
+    NoteModel note = ModalRoute.of(context)!.settings.arguments as NoteModel;
     return Scaffold(
       backgroundColor: Color(0xff323232),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  Customappbar(title: 'Edit Note', icon: Icons.check),
-                  const SizedBox(height: 40),
-                  textField(
-                    hintText: 'Title',
-                    onSaved: (value) {},
-                    maxLines: 1,
-                  ),
-                  const SizedBox(height: 20),
-                  textField(
-                    hintText: 'Content',
-                    onSaved: (value) {},
-                    maxLines: 5,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+      body: NotEditViewBody(note: note),
     );
   }
 }
