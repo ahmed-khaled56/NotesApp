@@ -30,7 +30,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
       child: Column(
         children: [
           sheetBody(),
+          SizedBox(height: 20),
           ColorList(),
+          SizedBox(height: 20),
 
           BlocBuilder<NotesAddCubits, AddNotesStates>(
             builder: (context, state) {
@@ -44,7 +46,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       title: title!,
                       subTitle: subTitle!,
                       date: formatedDte,
-                      color: Colors.blue.value,
+                      color: Colors.blue.hashCode,
                     );
                     BlocProvider.of<NotesAddCubits>(
                       context,
@@ -81,7 +83,6 @@ Widget sheetBody() {
         },
         maxLines: 5,
       ),
-      SizedBox(height: 80),
     ],
   );
 }
