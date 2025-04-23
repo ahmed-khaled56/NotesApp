@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/cubits/add_notes_cubit/add_notes_cubits.dart';
 import 'package:notes_app/cubits/notes_cubit.dart/notes_cubit.dart';
+import 'package:notes_app/helper/Show%20_snack_bar.dart';
 import 'package:notes_app/widgets/Add_Note_form.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_Form_textField.dart';
